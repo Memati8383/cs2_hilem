@@ -1,0 +1,109 @@
+using CS2Cheat.Data.Game;
+using CS2Cheat.Utils;
+using Keys = Process.NET.Native.Types.Keys;
+
+namespace CS2Cheat.Features;
+
+public sealed class TriggerBot : ThreadedServiceBase
+{
+    private const float MaxVelocityThreshold = 18f;
+    private const int TriggerDelayMs = 5;
+    private const int EntityStride = 112;
+
+    private readonly GameData _gameData;
+
+    private readonly GameProcess _gameProcess;
+
+    public TriggerBot(GameProcess gameProcess, GameData gameData)
+    {
+        _gameProcess = gameProcess ?? throw new ArgumentNullException(nameof(gameProcess));
+        _gameData = gameData ?? throw new ArgumentNullException(nameof(gameData));
+    }
+
+
+
+    private DateTime _lastTriggerTime = DateTime.MinValue;
+
+    protected override string ThreadName => nameof(TriggerBot);
+
+    protected override void FrameAction()
+    {
+        if (!ConfigManager.Load().TriggerBot) return;
+        
+        if (!ShouldExecuteTriggerBot())
+            return;
+
+        var targetEntity = GetTargetEntity();
+        if (targetEntity == IntPtr.Zero)
+            return;
+
+        if (_gameProcess.Process == null) return;
+
+        var entityTeam = _gameProcess.Process.Read<int>(targetEntity + Offsets.m_iTeamNum);
+        if (!ShouldTriggerOnEntity(entityTeam))
+            return;
+
+        if ((DateTime.Now - _lastTriggerTime).TotalMilliseconds < 50)
+            return;
+
+        ExecuteTrigger();
+        _lastTriggerTime = DateTime.Now;
+    }
+
+    private bool ShouldExecuteTriggerBot()
+    {
+        return _gameProcess.IsValid && IsHotKeyDown();
+    }
+
+    private IntPtr GetTargetEntity()
+    {
+        if (_gameProcess.ModuleClient == null) return IntPtr.Zero;
+
+        var localPlayerPawn = _gameProcess.ModuleClient.Read<IntPtr>(Offsets.dwLocalPlayerPawn);
+        if (localPlayerPawn == IntPtr.Zero) return IntPtr.Zero;
+
+        if (_gameProcess.Process == null) return IntPtr.Zero;
+
+        var entityId = _gameProcess.Process.Read<int>(localPlayerPawn + Offsets.m_iIDEntIndex);
+
+        if (entityId < 0)
+            return IntPtr.Zero;
+
+        var entityList = _gameProcess.ModuleClient.Read<IntPtr>(Offsets.dwEntityList);
+        var entityListBase = _gameProcess.Process.Read<IntPtr>(entityList + 16);
+        return entityListBase != IntPtr.Zero
+            ? _gameProcess.Process.Read<IntPtr>(entityListBase + entityId * EntityStride)
+            : IntPtr.Zero;
+    }
+
+    private bool ShouldTriggerOnEntity(int entityTeam)
+    {
+        if (_gameData.Player == null) return false;
+
+        var isDifferentTeam = _gameData.Player.Team != entityTeam.ToTeam();
+        var isSpecialCondition = _gameData.Player.FFlags == 65664;
+        var isWithinVelocityLimit = Math.Abs(_gameData.Player.Velocity.Z) <= MaxVelocityThreshold;
+
+        return (isDifferentTeam || isSpecialCondition) && isWithinVelocityLimit;
+    }
+
+    private static void ExecuteTrigger()
+    {
+        Thread.Sleep(TriggerDelayMs);
+        Utility.MouseLeftDown();
+        Thread.Sleep(10);
+        Utility.MouseLeftUp();
+    }
+
+    public static bool IsHotKeyDown()
+    {
+        return ConfigManager.Load().TriggerBotKey.IsKeyDown();
+    }
+
+    public override void Dispose()
+    {
+        base.Dispose();
+        GC.SuppressFinalize(this);
+    }
+
+}
