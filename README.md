@@ -1,53 +1,53 @@
 # MematiHack v1.0
 
-MematiHack is a high-performance external CS2 project featuring a modern ImGui overlay, built-in menu, and advanced features for Counter-Strike 2.
+MematiHack, modern ImGui overlay, gömülü menü ve gelişmiş özellikler sunan, Counter-Strike 2 için yüksek performanslı bir external CS2 projesidir.
 
-## Features
+## Özellikler
 
 ### Aimbot
-- **AimBot** — Automatic aim at enemies with bone targeting, recoil control (RCS), smoothing, and dynamic FOV.
+- **AimBot** — Kemik hedefleme, geri tepme kontrolü (RCS), smoothing ve dinamik FOV ile düşmanlara otomatik nişan alma.
 
 ### TriggerBot
-- **TriggerBot** — Auto-fires when crosshair is on a valid enemy while holding the trigger key.
+- **TriggerBot** — Trigger tuşuna basılıyken nişangah düşmanın üzerindeyken otomatik ateş etme.
 
-### Movement
-- **BunnyHop** — Auto-jump with force-jump for bunny hopping.
+### Hareket
+- **BunnyHop** — Otomatik zıplama ve force-jump ile bunny hop.
 
 ### ESP
-- **Box ESP** — 2D bounding boxes around entities with health bar, armor bar, weapon info, name, distance, flags, and snaplines.
-- **Skeleton ESP** — Bone-connected skeleton rendering on living entities.
-- **Item ESP** — Dropped weapon names with distance on screen.
-- **Glow ESP** — Writes glow color/type/style to entity memory for visual highlighting.
-- **Offscreen ESP** — Directional arrows at screen edges pointing to off-screen enemies.
-- **Aim Crosshair** — Static crosshair + recoil dot showing bullet landing point.
+- **Box ESP** — Sağlık barı, zırh barı, silah bilgisi, isim, mesafe, flagler ve snapline ile 2D çerçeve.
+- **Skeleton ESP** — Canlı düşmanlarda kemik bağlantılı iskelet gösterimi.
+- **Item ESP** — Yerdeki silah isimlerini ve mesafelerini gösterme.
+- **Glow ESP** — Görsel vurgulama için düşman belleğine glow rengi/tipi/stili yazma.
+- **Offscreen ESP** — Ekranda görünmeyen düşmanlara yön gösteren oklar.
+- **Aim Crosshair** — Sabit nişangah + mermi düşüş noktasını gösteren recoil dot.
 
-### Visuals
-- **Radar** — 2D rotating radar window showing nearby enemies and bomb position.
-- **Anti-Flash** — Instantly nullifies flashbang effects.
-- **Bomb Timer** — C4 timer panel with progress bar, defuse bar, and world marker.
-- **Vote Teller** — Displays in-progress vote details (issue, team, yes/potential counts).
-- **Watermark** — Top-right overlay with cheat name, FPS, and current time.
-- **Spectator List** — Lists players spectating you in a top-right panel.
-- **Velocity Graph** — Real-time line graph of player velocity over last 120 frames.
-- **Grenade Helper** — Map markers with throw instructions and aim-angle application (loads from JSON lineups).
+### Görseller
+- **Radar** — Yakındaki düşmanları ve bomba konumunu gösteren 2D dönen radar penceresi.
+- **Anti-Flash** — Flash bombasının etkisini anında sıfırlama.
+- **Bomb Timer** — C4 zamanlayıcı paneli, progress bar, defuse bar ve dünya işareti.
+- **Vote Teller** — Devam eden oylamanın detaylarını (konu, takım, evet/potansiyel sayıları) gösterme.
+- **Watermark** — Sağ üst köşede hile adı, FPS ve saat gösterimi.
+- **Spectator List** — Sizi izleyen oyuncuları sağ üst panelde listeleme.
+- **Velocity Graph** — Oyuncu hızının son 120 karelik gerçek zamanlı çizgi grafiği.
+- **Grenade Helper** — JSON lineup'lardan yüklenen atış talimatları ve nişan alma açıları ile harita işaretçileri.
 
-### Feedback
-- **Hitmarker** — Animated X-shaped hit markers at screen center on damage.
-- **Damage Text** — Floating damage numbers or "KILL" text at hit positions with fade-out.
-- **HitSound** — Configurable .wav hit sound via MCI on enemy damage.
+### Geri Bildirim
+- **Hitmarker** — Hasar alındığında ekran ortasında animasyonlu X işareti.
+- **Damage Text** — Hasar noktasında kayan hasar sayıları veya "KILL" yazısı (sönümlenerek kaybolur).
+- **HitSound** — Düşmana hasar verildiğinde MCI üzerinden yapılandırılabilir .wav sesi çalma.
 
-## Installation
-1. Download and install [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0).
-2. Clone this repository.
-3. Open the solution in Visual Studio 2022 or use the command line:
+## Kurulum
+1. [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)'yı indirin ve kurun.
+2. Bu repoyu klonlayın.
+3. Visual Studio 2022 ile çözümü açın veya komut satırını kullanın:
    ```bash
    dotnet build
    ```
 
-## Usage
-1. Launch Counter-Strike 2.
-2. Run `CS2Cheat.exe`.
-3. Press **INSERT** to toggle the menu.
+## Kullanım
+1. Counter-Strike 2'yi başlatın.
+2. `CS2Cheat.exe`'yi çalıştırın.
+3. Menüyü açmak/kapatmak için **INSERT** tuşuna basın.
 
-## Disclaimer
-This project is for educational purposes only. Use at your own risk. I am not responsible for any bans or issues resulting from the use of this software.
+## Sorumluluk Reddi
+Bu proje yalnızca eğitim amaçlıdır. Kullanımı tamamen kendi sorumluluğunuzdadır. Bu yazılımın kullanımından kaynaklanan ban veya diğer sorunlardan sorumlu değilim.
