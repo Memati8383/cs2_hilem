@@ -25,7 +25,7 @@ internal class BombTimer(GameProcess gameProcess) : ThreadedServiceBase
     #endregion
 
     private float _lastBeepTime;
-    private static string SoundPath => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "sounds", "beep.wav");
+    private static string SoundPath => ResourceHelper.GetExtractedPath(Path.Combine("sounds", "beep.wav"));
 
     private float _lastReadTime;
 

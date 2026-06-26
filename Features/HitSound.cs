@@ -13,7 +13,7 @@ public static class HitSound
     private static float _prevDamage = -1;
     private const string Alias = "HitSoundAlias";
     private static string _currentSoundName = "";
-    private static string SoundDirectory => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "sounds");
+    private static string SoundDirectory => ResourceHelper.GetExtractedPath("sounds");
 
     [DllImport("winmm.dll")]
     private static extern long mciSendString(string strCommand, StringBuilder? strReturn, int iReturnLength, IntPtr hwndCallback);

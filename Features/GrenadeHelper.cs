@@ -733,13 +733,12 @@ public static class GrenadeHelper
 
     private static void LoadGrenadeData()
     {
-        if (_loadAttempted) return; // Prevent infinite retry on failure
+        if (_loadAttempted) return;
         _loadAttempted = true;
         try
         {
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "grenades.json");
-            if (!File.Exists(path)) { _dataLoaded = false; return; }
-            var json = File.ReadAllText(path);
+            var json = ResourceHelper.ReadText("assets/grenades.json");
+            if (string.IsNullOrEmpty(json)) { _dataLoaded = false; return; }
             var raw = JsonSerializer.Deserialize<Dictionary<string, List<GrenadeEntry>>>(json,
                 new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
             if (raw != null)
