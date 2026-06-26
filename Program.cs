@@ -37,8 +37,17 @@ public class Program
         W("✔  " + msg, ConsoleColor.Green);
     }
 
+    private static readonly string LogPath = Path.Combine(Path.GetTempPath(), "MematiHack", "crash.log");
+
+    private static void Log(string msg)
+    {
+        try { File.AppendAllText(LogPath, $"[{DateTime.Now:HH:mm:ss}] {msg}\n"); } catch { }
+    }
+
     public static async Task Main()
     {
+        try { Directory.CreateDirectory(Path.GetDirectoryName(LogPath)!); } catch { }
+        Log("Program basladi");
         try
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
@@ -50,7 +59,9 @@ public class Program
             W("  ──────────────────────────────────────────────────────────", ConsoleColor.DarkGray);
 
             Step(1, "Offsetler güncelleniyor...");
+            Log("Offsets guncelleniyor...");
             await Offsets.UpdateOffsets();
+            Log("Offsets guncellendi");
             Done("Offsetler güncellendi");
 
             Step(2, "CS2 işlemi bekleniyor...");
@@ -71,8 +82,10 @@ public class Program
             W($"  ({res})", ConsoleColor.DarkGray);
 
             Step(3, "Oyun verisi başlatılıyor...");
+            Log("GameData baslatiliyor...");
             var gameData = new GameData(gameProcess);
             gameData.Start();
+            Log("GameData baslatildi");
 
             for (int p = 0; p <= 100; p += 4)
             {
@@ -84,8 +97,10 @@ public class Program
             Done("Oyun verisi hazır");
 
             Step(4, "Overlay başlatılıyor...");
+            Log("Overlay baslatiliyor...");
             var overlay = new OverlayRenderer(gameProcess, gameData);
             overlay.StartFeatures();
+            Log("Overlay baslatildi");
             Done("Overlay başlatıldı");
 
             W("  ──────────────────────────────────────────────────────────", ConsoleColor.DarkGray);
@@ -109,6 +124,7 @@ public class Program
         }
         catch (Exception ex)
         {
+            Log($"HATA: {ex.Message}\n{ex.StackTrace}");
             Console.Clear();
             W(" [!] KRİTİK HATA OLUŞTU [!]", ConsoleColor.Red);
             W("──────────────────────────────────────────────────────────", ConsoleColor.DarkGray);
@@ -119,5 +135,6 @@ public class Program
             W("Kapatmak için bir tuşa basın...", ConsoleColor.Cyan);
             Console.ReadKey();
         }
+        Log("Program sonlandi");
     }
 }
