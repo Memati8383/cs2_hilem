@@ -54,14 +54,7 @@ Hazır derlenmiş sürümleri [GitHub Releases](https://github.com/Memati8383/cs
 
 | Sürüm | Açıklama | İndir |
 |-------|----------|-------|
-| **v2.6** | Tek exe + assets/ klasörü, self-contained, çalışması garanti | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v2.6) |
-| **v2.5** | Tek exe, deneme (çalışmadı) | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v2.5) |
-| **v2.4** | Klasör, self-contained (çalışıyor) | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v2.4) |
-| **v2.2** | Self-contained, runtime dahil | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v2.2) |
-| **v2.1** | Tek exe, .NET 8.0 Runtime gerekli | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v2.1) |
-| **v2.0** | Tek exe (PDB dahil) | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v2.0) |
-| **v1.1** | Tek exe + assets/ klasörü | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v1.1) |
-| **v1.0** | Çoklu dosya + assets/ klasörü | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v1.0) |
+| **v1.0** | Klasör tabanlı, self-contained, .NET Runtime gerekmez | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v1.0) |
 
 ## Kurulum (Kaynaktan Derleme)
 1. [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)'yı indirin ve kurun.
