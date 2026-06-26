@@ -13,8 +13,7 @@
         <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <NoWarn>NU1701</NoWarn>
-        <PublishSingleFile>true</PublishSingleFile>
-        <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+        <PublishSingleFile Condition="'$(PublishSingleFile)' == ''">false</PublishSingleFile>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
