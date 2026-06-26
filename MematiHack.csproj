@@ -32,7 +32,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Include="assets\**" />
+        <Content Include="assets\**">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">

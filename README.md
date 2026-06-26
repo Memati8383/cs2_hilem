@@ -54,8 +54,9 @@ Hazır derlenmiş sürümleri [GitHub Releases](https://github.com/Memati8383/cs
 
 | Sürüm | Açıklama | İndir |
 |-------|----------|-------|
-| **v2.5** | Tek exe, self-contained, her şey içinde, çalışan sürüm | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v2.5) |
-| **v2.4** | Klasör, self-contained (çalıştığı biliniyor) | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v2.4) |
+| **v2.6** | Tek exe + assets/ klasörü, self-contained, çalışması garanti | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v2.6) |
+| **v2.5** | Tek exe, deneme (çalışmadı) | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v2.5) |
+| **v2.4** | Klasör, self-contained (çalışıyor) | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v2.4) |
 | **v2.2** | Self-contained, runtime dahil | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v2.2) |
 | **v2.1** | Tek exe, .NET 8.0 Runtime gerekli | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v2.1) |
 | **v2.0** | Tek exe (PDB dahil) | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v2.0) |
