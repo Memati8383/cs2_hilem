@@ -45,8 +45,13 @@ MematiHack, modern ImGui overlay, gömülü menü ve gelişmiş özellikler suna
 
 ## İndir (Önerilen)
 Hazır derlenmiş sürümleri [GitHub Releases](https://github.com/Memati8383/cs2_hilem/releases) sayfasından indirebilirsiniz.
-- **v2.1** — Tek exe dosyası, tüm assetler gömülü, .NET 8.0 Runtime gerektirir.
-- Daha eski sürümler için releases sayfasına göz atın.
+
+| Sürüm | Açıklama | İndir |
+|-------|----------|-------|
+| **v2.1** | Tek exe, PDB yok, tüm assetler gömülü | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v2.1) |
+| **v2.0** | Tek exe, assetler gömülü (PDB dahil) | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v2.0) |
+| **v1.1** | Tek exe + assets/ klasörü | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v1.1) |
+| **v1.0** | Çoklu dosya + assets/ klasörü | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v1.0) |
 
 ## Kurulum (Kaynaktan Derleme)
 1. [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)'yı indirin ve kurun.
