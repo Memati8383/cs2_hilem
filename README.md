@@ -43,7 +43,12 @@ MematiHack, modern ImGui overlay, gömülü menü ve gelişmiş özellikler suna
 - **Damage Text** — Hasar noktasında kayan hasar sayıları veya "KILL" yazısı (sönümlenerek kaybolur).
 - **HitSound** — Düşmana hasar verildiğinde MCI üzerinden yapılandırılabilir .wav sesi çalma.
 
-## Kurulum
+## İndir (Önerilen)
+Hazır derlenmiş sürümleri [GitHub Releases](https://github.com/Memati8383/cs2_hilem/releases) sayfasından indirebilirsiniz.
+- **v2.1** — Tek exe dosyası, tüm assetler gömülü, .NET 8.0 Runtime gerektirir.
+- Daha eski sürümler için releases sayfasına göz atın.
+
+## Kurulum (Kaynaktan Derleme)
 1. [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)'yı indirin ve kurun.
 2. Bu repoyu klonlayın.
 3. Visual Studio 2022 ile çözümü açın veya komut satırını kullanın:
