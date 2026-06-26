@@ -31,6 +31,13 @@ MematiHack, modern ImGui overlay, gömülü menü ve gelişmiş özellikler suna
 - **Velocity Graph** — Oyuncu hızının son 120 karelik gerçek zamanlı çizgi grafiği.
 - **Grenade Helper** — JSON lineup'lardan yüklenen atış talimatları ve nişan alma açıları ile harita işaretçileri.
 
+### Offsets (Güncelleme)
+- **a2x/cs2-dumper** — Oyun güncellemelerinde offset'ler otomatik çekilir:
+  - `offsets.json` → Base adresler (`dwEntityList`, `dwLocalPlayerPawn`, vb.)
+  - `client_dll.json` → Class field offset'leri (`m_iHealth`, `m_iTeamNum`, vb.)
+  - `buttons.json` → Tuş kodları (`dwForceJump`, vb.)
+  - Kaynak: [github.com/a2x/cs2-dumper](https://github.com/a2x/cs2-dumper)
+
 ### Geri Bildirim
 - **Hitmarker** — Hasar alındığında ekran ortasında animasyonlu X işareti.
 - **Damage Text** — Hasar noktasında kayan hasar sayıları veya "KILL" yazısı (sönümlenerek kaybolur).
@@ -43,11 +50,6 @@ MematiHack, modern ImGui overlay, gömülü menü ve gelişmiş özellikler suna
    ```bash
    dotnet build
    ```
-
-## Kullanım
-1. Counter-Strike 2'yi başlatın.
-2. `CS2Cheat.exe`'yi çalıştırın.
-3. Menüyü açmak/kapatmak için **INSERT** tuşuna basın.
 
 ## Sorumluluk Reddi
 Bu proje yalnızca eğitim amaçlıdır. Kullanımı tamamen kendi sorumluluğunuzdadır. Bu yazılımın kullanımından kaynaklanan ban veya diğer sorunlardan sorumlu değilim.
