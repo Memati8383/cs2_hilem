@@ -1,5 +1,11 @@
 # MematiHack v1.0
 
+![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?logo=dotnet)
+![Platform](https://img.shields.io/badge/platform-Windows-0078D4?logo=windows)
+![License](https://img.shields.io/badge/license-MIT-green)
+![CS2](https://img.shields.io/badge/game-CS2-FF6B35?logo=steam)
+![Release](https://img.shields.io/github/v/release/Memati8383/cs2_hilem?color=blue&logo=github)
+
 MematiHack, modern ImGui overlay, gömülü menü ve gelişmiş özellikler sunan, Counter-Strike 2 için yüksek performanslı bir external CS2 projesidir.
 
 ## Özellikler
