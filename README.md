@@ -1,4 +1,4 @@
-# MematiHack v1.0
+# MematiHack v2.0
 
 ![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?logo=dotnet)
 ![Platform](https://img.shields.io/badge/platform-Windows-0078D4?logo=windows)
@@ -54,6 +54,7 @@ Hazır derlenmiş sürümleri [GitHub Releases](https://github.com/Memati8383/cs
 
 | Sürüm | Açıklama | İndir |
 |-------|----------|-------|
+| **v2.0** | Dil sistemi, Material Icons, stagger animasyonları, tam çeviri | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v2) |
 | **v1.0** | Klasör tabanlı, self-contained, .NET Runtime gerekmez | [İndir](https://github.com/Memati8383/cs2_hilem/releases/tag/v1.0) |
 
 ## Konfigürasyon
