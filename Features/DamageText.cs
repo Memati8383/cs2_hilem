@@ -80,7 +80,7 @@ public static class DamageText
                 float xOff = indicator.Velocity.X * progress;
                 float yOff = indicator.Velocity.Y * progress + (0.5f * 120f * (float)Math.Pow(progress, 2));
 
-                string text = indicator.IsKill ? "KILL" : $"-{indicator.Damage:0}";
+                string text = indicator.IsKill ? Language.Get("damage_kill") : $"-{indicator.Damage:0}";
                 var colorArr = indicator.IsKill ? new float[] { 1f, 0.8f, 0f, 1f } : Config.DamageTextColor;
                 uint color = OverlayRenderer.ToColor(new Vector4(colorArr[0], colorArr[1], colorArr[2], colorArr[3] * alpha));
                 

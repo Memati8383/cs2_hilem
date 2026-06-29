@@ -92,7 +92,7 @@ internal class BombTimer(GameProcess gameProcess) : ThreadedServiceBase
                 if (TimerLength <= 5f || TimerLength > 60f) TimerLength = 40f;
 
                 IsBeingDefused = gameProcess.Process.Read<bool>(bombPtr + Offsets.m_bBeingDefused);
-                BombSite = gameProcess.Process.Read<int>(bombPtr + Offsets.m_nBombSite) == 1 ? "B" : "A";
+                BombSite = gameProcess.Process.Read<int>(bombPtr + Offsets.m_nBombSite) == 1 ? Language.Get("bomb_site_b") : Language.Get("bomb_site_a");
 
                 if (IsBeingDefused)
                 {
@@ -225,7 +225,7 @@ internal class BombTimer(GameProcess gameProcess) : ThreadedServiceBase
         drawList.AddRectFilled(pos + new Vector2(10, 35), pos + new Vector2(10 + (panelWidth - 20) * progress, 50), barColor, 5f);
 
         // Text
-        string text = $"BOMBA [{BombSite}] - {visualTime:0.0}s";
+        string text = $"{Language.Get("bomb_bomba")} [{BombSite}] - {visualTime:0.0}s";
         drawList.AddText(pos + new Vector2(panelWidth * 0.5f - ImGui.CalcTextSize(text).X * 0.5f, 10), textCol, text);
 
         // Tactical Info & ESP Marker
@@ -241,7 +241,7 @@ internal class BombTimer(GameProcess gameProcess) : ThreadedServiceBase
                 drawList.AddCircleFilled(bombPos2D, 15f, OverlayRenderer.ToColor(10, 10, 10, 180));
                 drawList.AddCircle(bombPos2D, 15f, markerCol, 0, 2f);
                 
-                string marker = "C4";
+                string marker = Language.Get("bomb_c4");
                 string distText = $"{(int)distMeters}m";
                 
                 Vector2 markerSize = ImGui.CalcTextSize(marker);

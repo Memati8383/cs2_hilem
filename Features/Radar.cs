@@ -17,7 +17,7 @@ public static class Radar
         if (!config.Radar || gameData.Player == null) return;
 
         ImGui.SetNextWindowSize(new Vector2(250, 250), ImGuiCond.FirstUseEver);
-        if (ImGui.Begin("Radar", ImGuiWindowFlags.NoCollapse))
+        if (ImGui.Begin(Language.Get("window_radar"), ImGuiWindowFlags.NoCollapse))
         {
             var drawList = ImGui.GetWindowDrawList();
             var pos = ImGui.GetWindowPos();

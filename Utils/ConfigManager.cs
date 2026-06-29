@@ -108,7 +108,7 @@ public class ConfigManager
     public static readonly string[] BoneNames = { "head", "neck_0", "spine_1", "pelvis" };
 
     [JsonIgnore]
-    public static readonly string[] BoneDisplayNames = { "Kafa", "Boyun", "Gövde", "Pelvis" };
+    public static string[] BoneDisplayNames => [Language.Get("bone_head"), Language.Get("bone_neck"), Language.Get("bone_chest"), Language.Get("bone_pelvis")];
 
 
     public static ConfigManager Load()

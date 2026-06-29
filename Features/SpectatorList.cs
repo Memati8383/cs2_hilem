@@ -34,7 +34,7 @@ public static class SpectatorList
 
             if (targetHandle == localPlayerPawnHandle)
             {
-                var name = entity.Name ?? "Unknown";
+                var name = entity.Name ?? Language.Get("spectator_unknown");
                 if (!string.IsNullOrEmpty(name))
                     spectators.Add(name);
             }
@@ -43,7 +43,7 @@ public static class SpectatorList
         if (spectators.Count == 0) return;
 
         var io = ImGui.GetIO();
-        var text = $"Spectators ({spectators.Count}):\n" + string.Join("\n", spectators);
+        var text = $"{Language.Get("spectator_header")} ({spectators.Count}):\n" + string.Join("\n", spectators);
         var pos = new Vector2(io.DisplaySize.X - 250, 100);
         var textSize = ImGui.CalcTextSize(text);
 

@@ -37,7 +37,7 @@ public static class GrenadeHelper
     private static bool _autoWeaponFilter = true;
 
     private static readonly string[] WeaponNames = { "weapon_smokegrenade", "weapon_hegrenade", "weapon_flashbang", "weapon_molotov" };
-    private static readonly string[] WeaponLabels = { "Smoke", "HE", "Flash", "Molotov" };
+    private static string[] WeaponLabels => [Language.Get("grenade_smoke"), Language.Get("grenade_he"), Language.Get("grenade_flash"), Language.Get("grenade_molotov")];
 
     public static string CurrentMap => _currentMap;
 
@@ -406,7 +406,7 @@ public static class GrenadeHelper
         if (entry.Viewangles.Count >= 2)
         {
             dl.AddText(font, 10f, new Vector2(px + 14, iy + 1),
-                OverlayRenderer.ToColor(120, 120, 140, aDim), "AIM");
+                OverlayRenderer.ToColor(120, 120, 140, aDim), Language.Get("grenade_aim"));
             string aimVals = $"{entry.Viewangles[0]:0.0}°   {entry.Viewangles[1]:0.0}°";
             dl.AddText(font, 12f, new Vector2(px + 44, iy),
                 OverlayRenderer.ToColor(100, 210, 255, aText), aimVals);
@@ -417,7 +417,7 @@ public static class GrenadeHelper
         if (entry.Position.Count >= 3)
         {
             dl.AddText(font, 10f, new Vector2(px + 14, iy + 1),
-                OverlayRenderer.ToColor(120, 120, 140, aDim), "POS");
+                OverlayRenderer.ToColor(120, 120, 140, aDim), Language.Get("grenade_pos"));
             string posVals = $"{entry.Position[0]:0}   {entry.Position[1]:0}   {entry.Position[2]:0}";
             dl.AddText(font, 11f, new Vector2(px + 44, iy),
                 OverlayRenderer.ToColor(160, 160, 180, aSub), posVals);
@@ -439,7 +439,7 @@ public static class GrenadeHelper
                 dl.AddRect(new Vector2(badgeX, iy), new Vector2(badgeX + 64, iy + 20),
                     OverlayRenderer.ToColor(60, 140, 220, (byte)(90 * alpha)), 5f, ImDrawFlags.None, 1f);
                 dl.AddText(font, 11f, new Vector2(badgeX + 7, iy + 4),
-                    OverlayRenderer.ToColor(100, 200, 255, aText), "CROUCH");
+                    OverlayRenderer.ToColor(100, 200, 255, aText), Language.Get("grenade_crouch"));
                 badgeX += 70f;
             }
             if (needsJump)
@@ -449,7 +449,7 @@ public static class GrenadeHelper
                 dl.AddRect(new Vector2(badgeX, iy), new Vector2(badgeX + 56, iy + 20),
                     OverlayRenderer.ToColor(60, 200, 80, (byte)(90 * alpha)), 5f, ImDrawFlags.None, 1f);
                 dl.AddText(font, 11f, new Vector2(badgeX + 7, iy + 4),
-                    OverlayRenderer.ToColor(120, 255, 120, aText), "JUMP");
+                    OverlayRenderer.ToColor(120, 255, 120, aText), Language.Get("grenade_jump"));
             }
             iy += 26f;
         }
@@ -487,7 +487,7 @@ public static class GrenadeHelper
         }
 
         // ── Hint footer ──────────────────────────────────────────────────────
-        string hint = "LMB  outside menu to apply viewangles";
+        string hint = Language.Get("grenade_hint_apply");
         float hintW = ImGui.CalcTextSize(hint).X;
         float hx    = px + panelW * 0.5f - hintW * 0.5f;
         dl.AddText(font, 10f, new Vector2(hx, py + tipH - 16f),
@@ -500,18 +500,18 @@ public static class GrenadeHelper
         bool jump = entry.Jump || (entry.Grenade?.Jump ?? false);
 
         string action;
-        if (duck && jump) action = "Crouch-jump";
-        else if (duck) action = "Crouch";
-        else if (jump) action = "Jump";
-        else action = "Stand";
+        if (duck && jump) action = Language.Get("grenade_crouch_jump");
+        else if (duck) action = Language.Get("grenade_crouch");
+        else if (jump) action = Language.Get("grenade_jump");
+        else action = Language.Get("grenade_stand");
 
         string throwType;
         var w = entry.Weapon;
-        if (w.Contains("smoke")) throwType = "throw smoke";
-        else if (w.Contains("he")) throwType = "throw HE";
-        else if (w.Contains("flash")) throwType = "throw flash";
-        else if (w.Contains("molotov") || w.Contains("inc")) throwType = "throw molotov";
-        else throwType = "throw";
+        if (w.Contains("smoke")) throwType = Language.Get("grenade_action_throw_smoke");
+        else if (w.Contains("he")) throwType = Language.Get("grenade_action_throw_he");
+        else if (w.Contains("flash")) throwType = Language.Get("grenade_action_throw_flash");
+        else if (w.Contains("molotov") || w.Contains("inc")) throwType = Language.Get("grenade_action_throw_molotov");
+        else throwType = Language.Get("grenade_action_throw");
 
         string loc = entry.Name is { Count: >= 2 } && !string.IsNullOrEmpty(entry.Name[1])
             ? $"  \xbb  {entry.Name[1]}"
@@ -578,10 +578,10 @@ public static class GrenadeHelper
     {
         return weapon switch
         {
-            "weapon_smokegrenade" => "Smoke",
-            "weapon_hegrenade" => "HE",
-            "weapon_flashbang" => "Flash",
-            "weapon_molotov" or "weapon_incgrenade" => "Molotov",
+            "weapon_smokegrenade" => Language.Get("grenade_smoke"),
+            "weapon_hegrenade" => Language.Get("grenade_he"),
+            "weapon_flashbang" => Language.Get("grenade_flash"),
+            "weapon_molotov" or "weapon_incgrenade" => Language.Get("grenade_molotov"),
             _ => weapon
         };
     }

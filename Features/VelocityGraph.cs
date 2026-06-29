@@ -48,7 +48,7 @@ public static class VelocityGraph
             drawList.AddLine(new Vector2(x0, y0), new Vector2(x1, y1), OverlayRenderer.ToColor(0, 200, 255), 1.5f);
         }
 
-        var infoText = $"Vel: {vel:0.0} u/s  Max: {_maxVel:0.0}";
+        var infoText = $"{Language.Get("velocity_label")}: {vel:0.0} u/s  {Language.Get("velocity_max")}: {_maxVel:0.0}";
         drawList.AddText(new Vector2(graphPos.X + 5, graphPos.Y + graphSize.Y + 2), OverlayRenderer.Colors.White, infoText);
     }
 }

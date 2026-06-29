@@ -23,16 +23,16 @@ internal class VoteTeller : ThreadedServiceBase
 
     private static readonly Dictionary<int, string> VoteIssues = new()
     {
-        [0] = "Yok",
-        [1] = "Oyuncuyu At",
-        [2] = "Takım Değiştir",
-        [3] = "Mola Ver",
-        [5] = "Maçı Berabere Bitir",
-        [6] = "Yeniden Oyna",
-        [7] = "Surrender",
-        [8] = "Timeout",
-        [9] = "Kick",
-        [10] = "Side (Takım Seçimi)",
+        [0] = Language.Get("vote_none"),
+        [1] = Language.Get("vote_kick"),
+        [2] = Language.Get("vote_swap"),
+        [3] = Language.Get("vote_timeout"),
+        [5] = Language.Get("vote_draw"),
+        [6] = Language.Get("vote_rematch"),
+        [7] = Language.Get("vote_surrender"),
+        [8] = Language.Get("vote_timeout"),
+        [9] = Language.Get("vote_kick"),
+        [10] = Language.Get("vote_side"),
     };
 
     public VoteTeller(GameProcess gameProcess)
@@ -108,14 +108,14 @@ internal class VoteTeller : ThreadedServiceBase
         if (!_isVoting) return;
 
         var config = ConfigManager.Load();
-        var issueName = VoteIssues.TryGetValue(_activeIssue, out var name) ? name : $"Bilinmiyor ({_activeIssue})";
-        var teamName = _votingTeam == 2 ? "TERÖRİSTLER" : _votingTeam == 3 ? "ANTİ-TERÖRİSTLER" : "HERKES";
+        var issueName = VoteIssues.TryGetValue(_activeIssue, out var name) ? name : $"{Language.Get("vote_unknown")} ({_activeIssue})";
+        var teamName = _votingTeam == 2 ? Language.Get("vote_terrorists") : _votingTeam == 3 ? Language.Get("vote_ct") : Language.Get("vote_everyone");
         
         var textColor = config.WatermarkTextRainbow 
             ? OverlayRenderer.GetRainbowColor() 
             : OverlayRenderer.ToColor(new Vector4(config.WatermarkTextColor[0], config.WatermarkTextColor[1], config.WatermarkTextColor[2], config.WatermarkTextColor[3]));
 
-        var text = $"Oylama: {issueName}\nTakım: {teamName}\nSeçenek: {_yesVotes} | Oy verebilecek: {_potentialVotes}";
+        var text = string.Format(Language.Get("vote_format"), issueName, teamName, _yesVotes, _potentialVotes);
 
         var font = ImGui.GetFont();
         var fontSize = ImGui.GetFontSize() * 1.4f;

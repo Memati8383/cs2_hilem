@@ -140,9 +140,9 @@ public static class EspBox
             var name = "";
             if (Config.EspName)
             {
-                name = entity.Name ?? "UNKNOWN";
+                name = entity.Name ?? Language.Get("flag_unknown");
                 if (entity.Name != null && entity.Name.Contains("bot", StringComparison.OrdinalIgnoreCase))
-                    name += " (Bot)";
+                    name += " (" + Language.Get("flag_bot") + ")";
             }
             if (Config.EspDistance)
             {
@@ -164,7 +164,7 @@ public static class EspBox
             // Ammo
             if (Config.EspAmmo && entity.Ammo >= 0)
             {
-                DrawOutlinedText(drawList, new Vector2(flagX, flagY), textColor, $"Ammo: {entity.Ammo}");
+                DrawOutlinedText(drawList, new Vector2(flagX, flagY), textColor, $"{Language.Get("flag_ammo")}: {entity.Ammo}");
                 flagY += spacing;
             }
 
@@ -188,42 +188,42 @@ public static class EspBox
             // Scoped
             if (entity.IsInScope == 1 || entity.IsScoped)
             {
-                DrawOutlinedText(drawList, new Vector2(flagX, flagY), OverlayRenderer.ToColor(0, 191, 255), "Scoped");
+                DrawOutlinedText(drawList, new Vector2(flagX, flagY), OverlayRenderer.ToColor(0, 191, 255), Language.Get("flag_scoped"));
                 flagY += spacing;
             }
 
             // Flashed
             if (entity.FlashAlpha > 0)
             {
-                DrawOutlinedText(drawList, new Vector2(flagX, flagY), OverlayRenderer.ToColor(255, 255, 0), "Flashed");
+                DrawOutlinedText(drawList, new Vector2(flagX, flagY), OverlayRenderer.ToColor(255, 255, 0), Language.Get("flag_flashed"));
                 flagY += spacing;
             }
 
             // Reloading
             if (Config.EspReloading && entity.IsReloading)
             {
-                DrawOutlinedText(drawList, new Vector2(flagX, flagY), OverlayRenderer.ToColor(255, 165, 0), "Reloading");
+                DrawOutlinedText(drawList, new Vector2(flagX, flagY), OverlayRenderer.ToColor(255, 165, 0), Language.Get("flag_reloading"));
                 flagY += spacing;
             }
 
             // Defusing
             if (Config.EspDefusing && entity.IsDefusing)
             {
-                DrawOutlinedText(drawList, new Vector2(flagX, flagY), OverlayRenderer.ToColor(0, 255, 255), "Defusing");
+                DrawOutlinedText(drawList, new Vector2(flagX, flagY), OverlayRenderer.ToColor(0, 255, 255), Language.Get("flag_defusing"));
                 flagY += spacing;
             }
 
             // Has Defuser
             if (entity.HasDefuser)
             {
-                DrawOutlinedText(drawList, new Vector2(flagX, flagY), OverlayRenderer.ToColor(100, 200, 255), "Kit");
+                DrawOutlinedText(drawList, new Vector2(flagX, flagY), OverlayRenderer.ToColor(100, 200, 255), Language.Get("flag_kit"));
                 flagY += spacing;
             }
 
             // Heavy armor
             if (entity.HasHelmet && entity.Armor > 0)
             {
-                DrawOutlinedText(drawList, new Vector2(flagX, flagY), OverlayRenderer.ToColor(200, 200, 200), "Helmet");
+                DrawOutlinedText(drawList, new Vector2(flagX, flagY), OverlayRenderer.ToColor(200, 200, 200), Language.Get("flag_helmet"));
             }
         }
 

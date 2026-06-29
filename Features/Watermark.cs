@@ -15,7 +15,7 @@ public static class Watermark
         var io = ImGui.GetIO();
         float fps = io.Framerate;
         string time = DateTime.Now.ToString("HH:mm:ss");
-        string text = $"MematiHack | FPS: {fps:0} | {time}";
+        string text = $"MematiHack | {Language.Get("watermark_fps")}: {fps:0} | {time}";
 
         var textSize = ImGui.CalcTextSize(text);
         var padding = new Vector2(10, 5);
